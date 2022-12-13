@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 public class EnemyBehaviour : MonoBehaviour
 {
     [SerializeField] private int _health;
@@ -15,7 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private DropsSystem _dropsSystem; 
     [SerializeField] private bool _hasSoulFragment = false;
     GameObject player;
-    UICounter scoreUI;
+    private CounterManager _counterManager;
     
     Rigidbody2D enemyRb;
 
@@ -26,7 +23,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             enemyRb = GetComponent<Rigidbody2D>();
             player = FindObjectOfType<Player>().gameObject;
-            scoreUI = FindObjectOfType<ScoreUI>();
+            _counterManager = FindObjectOfType<CounterManager>();
             _dropsSystem = FindObjectOfType<DropsSystem>();
         }
         catch
@@ -65,7 +62,7 @@ public class EnemyBehaviour : MonoBehaviour
     
     private void Died()
     {
-        scoreUI.AddScore();
+        _counterManager.AddEnemies();
         _dropsSystem.DropExperiencePoints(transform, _xpAmount);
         Destroy(this.gameObject);
     }
