@@ -2,27 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Experience : MonoBehaviour
+public class SoulFragment : MonoBehaviour
 {
-    private int _value;
-    private XPBar _xpBar;
+    private DropsSystem _dropSystem;
 
     private void Start()
     {
-        _xpBar = FindObjectOfType<XPBar>();
+        _dropSystem = FindObjectOfType<DropsSystem>();
     }
     
     void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("Player") && other.isTrigger)
         {
-            _xpBar.IncreaseXP(_value);
+            _dropSystem.AddSoulFragment();
             Destroy(this.gameObject);
         }    
-    }
-
-    public void SetValue(int newValue)
-    {
-        _value = newValue;
     }
 }

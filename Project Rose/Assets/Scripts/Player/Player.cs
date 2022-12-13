@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
 
     public float bulletSpeed;
     private GameManager _gameManager;
+    private Animator _animator;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
         _healthBar = GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         _gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
+        _animator = GetComponent<Animator>();
         InvokeRepeating("Atirar", 0.5f, 0.5f);
     }
 
@@ -35,20 +37,24 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movimento();
+        FlipSprite();
         if (_health <= 0)
         {
             Die();
         }
     }
 
-    void Movimento(){
+    void Movimento()
+    {
         playerRb.velocity = playerMovDir * playerVelocidade;
+
+        bool isRunnig = Mathf.Abs(playerRb.velocity.x) > Mathf.Epsilon || Mathf.Abs(playerRb.velocity.y) > Mathf.Epsilon;
+        _animator.SetBool("isRunning", isRunnig);
     }
 
-    void OnMove(InputValue inputValue){
-
+    void OnMove(InputValue inputValue)
+    {
         playerMovDir = inputValue.Get<Vector2>();
-
     }
 
     void Atirar()
@@ -94,9 +100,26 @@ public class Player : MonoBehaviour
         _healthBar.DecreaseSlider(damage);
         _health -= damage;
     }
+
+    public void InitDamageAnimation()
+    {
+        StartCoroutine(InvencibilityCoolDown());
+    }
+    
+    IEnumerator InvencibilityCoolDown()
+    {
+        _animator.SetBool("tookDamage", true);
+        yield return new WaitForSecondsRealtime(1.5f);
+        _animator.SetBool("tookDamage", false);
+    }
     
     public int GetHealth()
     {
         return _health;
+    }
+    
+    private void FlipSprite()
+    {
+        transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1);
     }
 }

@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392831721}
   - component: {fileID: 1392831723}
-  - component: {fileID: 1392831722}
+  - component: {fileID: 1392831724}
   m_Layer: 5
   m_Name: Health bar
   m_TagString: Untagged
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1392831722
+--- !u!114 &1392831724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392831720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84cb2f1e86f924a46a70a1896d21a15d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bad5c54727a9ba4daaa56214c15d98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1889532051
@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 5021237956797379715}
   - component: {fileID: 5021237956797379714}
   - component: {fileID: 2912762942588232679}
+  - component: {fileID: 3860136225914703482}
   m_Layer: 8
   m_Name: Rose
   m_TagString: Player
@@ -467,7 +468,7 @@ SpriteRenderer:
   m_SortingLayerID: 1445601145
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1175671839, guid: fdf865a071ffca81f8e9b48d574c8301, type: 3}
+  m_Sprite: {fileID: -1133135923, guid: 5c3539c362c10e948a3a545ee5c75172, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -563,7 +564,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &2912762942588232679
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -580,3 +581,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.4, y: 1.0375}
   m_Direction: 0
+--- !u!58 &3860136225914703482
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5021237956797379721}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5277778

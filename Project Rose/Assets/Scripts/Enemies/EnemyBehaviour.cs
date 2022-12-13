@@ -12,9 +12,10 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private int _damage;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private int _xpAmount;
-    [SerializeField] private DropsSystem _dropsSystem;
+    [SerializeField] private DropsSystem _dropsSystem; 
+    [SerializeField] private bool _hasSoulFragment = false;
     GameObject player;
-    ScoreUI scoreUI;
+    UICounter scoreUI;
     
     Rigidbody2D enemyRb;
 
@@ -53,6 +54,7 @@ public class EnemyBehaviour : MonoBehaviour
         if(col.gameObject.CompareTag("Player"))
         {
             col.gameObject.GetComponent<Player>().DecreaseHealth(_damage);
+            col.gameObject.GetComponent<Player>().InitDamageAnimation();
         }    
     }
 
