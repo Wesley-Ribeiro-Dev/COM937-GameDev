@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class UICounter : MonoBehaviour
+public class CounterManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _enemiesCounter;
     [SerializeField] private TextMeshProUGUI _soulsFragmentsCounter;
