@@ -46,6 +46,9 @@ TagManager:
   - name: Background
     uniqueID: 1887918385
     locked: 0
+  - name: New Layer 5
+    uniqueID: 79618705
+    locked: 0
   - name: Bullet
     uniqueID: 3392513341
     locked: 0
