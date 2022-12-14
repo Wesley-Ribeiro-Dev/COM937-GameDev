@@ -15,7 +15,7 @@ public class DropsSystem : MonoBehaviour
         _inventory._soulsFragments++;
     }
     
-    public void DropSoulFragments(Transform position, int value)
+    public void DropSoulFragments(Transform position)
     {
         Instantiate(_soulFragmentPrefab, position.position, position.rotation);
     }

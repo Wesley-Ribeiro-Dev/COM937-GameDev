@@ -423,6 +423,7 @@ MonoBehaviour:
   _movementSpeed: 0.5
   _xpAmount: 15
   _dropsSystem: {fileID: 0}
+  _hasSoulFragment: 1
 --- !u!50 &7971640388346305310
 Rigidbody2D:
   serializedVersion: 4

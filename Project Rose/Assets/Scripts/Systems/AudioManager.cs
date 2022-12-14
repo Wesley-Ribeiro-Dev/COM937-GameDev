@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
             _audioSource.Play();
         }
     }
-    
+
     private void OnSliderValueChanged()
     {
         _audioSource.volume = _audioSliderVolume.value;

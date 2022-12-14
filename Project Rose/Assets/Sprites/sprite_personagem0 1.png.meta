@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 22aa8bc8ee3a9b5a5aa0a67a7a656a8e
+guid: 42b6748dc073afa4da9f1b82a6985a3b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +102,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alien_0
+      name: sprite_personagem0_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 1079
-        width: 104
-        height: 143
+        x: 1
+        y: 63
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7eb085f0c13eff9985e7de77244cea5
-      internalID: 1882570785
+      spriteID: 464145d96dbf8be45911986976d6988e
+      internalID: -486442268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_1
+      name: sprite_personagem0_1
       rect:
         serializedVersion: 2
-        x: 260
-        y: 1079
-        width: 104
-        height: 130
+        x: 20
+        y: 63
+        width: 15
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34a7f6aaffe2174c5966d450767d8bd3
-      internalID: -98403026
+      spriteID: de80ce65cb0fc7c45bea6b484ea18a32
+      internalID: -2066658992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_2
+      name: sprite_personagem0_2
       rect:
         serializedVersion: 2
-        x: 52
-        y: 871
-        width: 104
-        height: 143
+        x: 39
+        y: 64
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ff04dce242cf91aaa1688fc35490743
-      internalID: -512759594
+      spriteID: 0bfb6876a77a1b843aa4ff8d783469ff
+      internalID: 1290000938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_3
+      name: sprite_personagem0_3
       rect:
         serializedVersion: 2
-        x: 273
-        y: 871
-        width: 104
-        height: 156
+        x: 1
+        y: 42
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baeb798792ee5472a9a584bace19a2b1
-      internalID: 1054864680
+      spriteID: dfef2ff68db5fa0479370a7ac6630c14
+      internalID: 912967358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_4
+      name: sprite_personagem0_4
       rect:
         serializedVersion: 2
-        x: 481
-        y: 858
-        width: 104
-        height: 156
+        x: 20
+        y: 42
+        width: 15
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c61d8eda9f91b6dc9196cf39f2cc207
-      internalID: -946187653
+      spriteID: 21684d941bba3bb41be24ee1eb838ea1
+      internalID: 576387688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_5
+      name: sprite_personagem0_5
       rect:
         serializedVersion: 2
-        x: 52
-        y: 663
-        width: 104
-        height: 143
+        x: 39
+        y: 43
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,20 +236,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e01c1a6cf0bd6bc94b7f3f799f4ded18
-      internalID: 1168455012
+      spriteID: 810b141b274a53f45a952407ab225f77
+      internalID: 1249181441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_6
+      name: sprite_personagem0_6
       rect:
         serializedVersion: 2
-        x: 260
-        y: 663
-        width: 104
-        height: 143
+        x: 1
+        y: 21
+        width: 15
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,20 +257,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7cdfb946e81bf36abf0fbb68a761bc1
-      internalID: 1069359453
+      spriteID: 83b3ce0771856f346a758a40dbd55d7a
+      internalID: -636271268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_7
+      name: sprite_personagem0_7
       rect:
         serializedVersion: 2
-        x: 468
-        y: 663
-        width: 104
-        height: 143
+        x: 20
+        y: 21
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,20 +278,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77c0a5ba2dd0dd01ca6188382dda3941
-      internalID: 25421511
+      spriteID: bd0ab327fa0b0254ebeac05894ea285d
+      internalID: -850265025
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_8
+      name: sprite_personagem0_8
       rect:
         serializedVersion: 2
-        x: 52
-        y: 455
-        width: 104
-        height: 143
+        x: 39
+        y: 21
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -299,20 +299,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 38221df66310a979f9c50645cf6941dd
-      internalID: -1384972250
+      spriteID: 4169f76014631c1449b3a17a397934ef
+      internalID: 1241555842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_9
+      name: sprite_personagem0_9
       rect:
         serializedVersion: 2
-        x: 260
-        y: 468
-        width: 104
-        height: 117
+        x: 1
+        y: 0
+        width: 15
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,20 +320,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e2773b360753ec71a8713a2d68abe35
-      internalID: -827692107
+      spriteID: 15cf5073d7d515941b35dbe449ab300d
+      internalID: -175613303
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_10
+      name: sprite_personagem0_10
       rect:
         serializedVersion: 2
-        x: 468
-        y: 468
-        width: 104
-        height: 104
+        x: 19
+        y: 0
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,8 +341,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db84bc3d5ae66f5ba8cf3a413f6950a1
-      internalID: -1350913603
+      spriteID: e642c764f076704449a0b63ddea010ac
+      internalID: -1971415312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprite_personagem0_11
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 0
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eccb8709cd470d41889d39790f030e0
+      internalID: -675832830
       vertices: []
       indices: 
       edges: []
@@ -358,17 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      alien_2: -512759594
-      alien_6: 1069359453
-      alien_0: 1882570785
-      alien_10: -1350913603
-      alien_8: -1384972250
-      alien_1: -98403026
-      alien_4: -946187653
-      alien_3: 1054864680
-      alien_5: 1168455012
-      alien_9: -827692107
-      alien_7: 25421511
+      sprite_personagem0_4: 576387688
+      sprite_personagem0_10: -1971415312
+      sprite_personagem0_8: 1241555842
+      sprite_personagem0_3: 912967358
+      sprite_personagem0_7: -850265025
+      sprite_personagem0_1: -2066658992
+      sprite_personagem0_5: 1249181441
+      sprite_personagem0_11: -675832830
+      sprite_personagem0_0: -486442268
+      sprite_personagem0_6: -636271268
+      sprite_personagem0_2: 1290000938
+      sprite_personagem0_9: -175613303
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -62,9 +62,18 @@ public class EnemyBehaviour : MonoBehaviour
     
     private void Died()
     {
-        _counterManager.AddEnemies();
-        _dropsSystem.DropExperiencePoints(transform, _xpAmount);
-        Destroy(this.gameObject);
+        if (_hasSoulFragment)
+        {
+            _counterManager.AddFragment();
+            _dropsSystem.DropSoulFragments(transform);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _counterManager.AddEnemies();
+            _dropsSystem.DropExperiencePoints(transform, _xpAmount);
+            Destroy(this.gameObject);
+        }
     }
 
     private void FlipSprite()
