@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7971640388346305306}
   - component: {fileID: 7971640388346305310}
   - component: {fileID: -3221416424033613865}
+  - component: {fileID: 1582941522869626372}
   m_Layer: 7
   m_Name: Goblin Prefab
   m_TagString: Enemy
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1440734827
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 4723107735738678597, guid: c1cdd26cc09ad224884556bc4d8296ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -116,9 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20370f7b5bdaa11a7a592ee1cf6a28b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 20
+  _health: 60
   _damage: 20
-  _movementSpeed: 0.5
+  _movementSpeed: 0.8
   _xpAmount: 30
   _dropsSystem: {fileID: 0}
   _hasSoulFragment: 0
@@ -145,7 +146,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!95 &-3221416424033613865
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -162,4 +163,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!58 &1582941522869626372
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7971640388346305309}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.09}
+  serializedVersion: 2
+  m_Radius: 0.18

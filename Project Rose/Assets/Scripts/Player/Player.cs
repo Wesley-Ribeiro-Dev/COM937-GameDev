@@ -1,42 +1,75 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    float playerVelocidade;
+    [Header("Attributes")]
+    [SerializeField] float playerVelocidade;
+    [SerializeField] private float _health = 100f;
+    [SerializeField] private float _defense = 10f;
+    [SerializeField] public float damage = 20f;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private float _dashDuration;
+    [SerializeField] private float _dashCooldown;
+    [SerializeField] private float _fireRate = 0.5f;
+    public int _bulletSpeed = 300;
 
-    private int _health = 100;
+    [SerializeField] private bool _canDash = true;
+    [SerializeField] private bool _isDashing = false;
 
-    [SerializeField]
-    GameObject bulletPrefab;
+    [SerializeField] private ElixirsModifiers _elixirsModifiers;
+
+    [SerializeField] GameObject bulletPrefab;
 
     private HealthBar _healthBar;
 
     Rigidbody2D playerRb;
-    
-    Vector2 playerMovDir;
 
-    public float bulletSpeed;
+    private TrailRenderer _trailRenderer;
+
+    Vector2 playerMovDir;
+    
     private GameManager _gameManager;
     private Animator _animator;
+    
 
     // Start is called before the first frame update
     void Start()
     {
+        if (_elixirsModifiers.health > 0)
+        {
+            _health = (_elixirsModifiers.health * _health) + _health;
+        }
+
+        if (_elixirsModifiers.defense > 0)
+        {
+            _defense = (_elixirsModifiers.defense * _defense) + _defense;
+        }
+
+        if (_elixirsModifiers.damage > 0)
+        {
+            damage = (_elixirsModifiers.damage * damage) + damage;
+        }
         playerRb = GetComponent<Rigidbody2D>();
         _healthBar = GetComponentInChildren(typeof(HealthBar)) as HealthBar;
         _gameManager = FindObjectOfType(typeof(GameManager)) as GameManager;
         _animator = GetComponent<Animator>();
-        InvokeRepeating("Atirar", 0.5f, 0.5f);
+        _trailRenderer = GetComponent<TrailRenderer>();
+        InvokeRepeating("Atirar", _fireRate, _fireRate);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movimento();
+        if (!_isDashing)
+        {
+            Movimento();
+        }
+        
         FlipSprite();
         if (_health <= 0)
         {
@@ -47,7 +80,6 @@ public class Player : MonoBehaviour
     void Movimento()
     {
         playerRb.velocity = playerMovDir * playerVelocidade;
-
         bool isRunnig = Mathf.Abs(playerRb.velocity.x) > Mathf.Epsilon || Mathf.Abs(playerRb.velocity.y) > Mathf.Epsilon;
         _animator.SetBool("isRunning", isRunnig);
     }
@@ -55,6 +87,27 @@ public class Player : MonoBehaviour
     void OnMove(InputValue inputValue)
     {
         playerMovDir = inputValue.Get<Vector2>();
+    }
+
+    private IEnumerator Dashing()
+    {
+        _canDash = false;
+        _isDashing = true;
+        playerRb.velocity = playerMovDir * _dashSpeed;
+        _trailRenderer.emitting = _isDashing;
+        _animator.SetBool("tookDamage", true);
+        yield return new WaitForSecondsRealtime(_dashDuration);
+        _animator.SetBool("tookDamage", false);
+        _isDashing = false;
+        _trailRenderer.emitting = _isDashing;
+        yield return new WaitForSecondsRealtime(_dashCooldown);
+        _canDash = true;
+    }
+    
+    void OnDash(InputValue inputValue)
+    {
+        if (inputValue.isPressed && _canDash)
+            StartCoroutine(Dashing());
     }
 
     void Atirar()
@@ -95,25 +148,29 @@ public class Player : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void DecreaseHealth(int damage)
+    public void DecreaseHealth(float damage)
     {
-        _healthBar.DecreaseSlider(damage);
-        _health -= damage;
+        float actualDamage = _defense - damage;
+        if (actualDamage < 0)
+        {
+            _healthBar.DecreaseSlider(Mathf.Abs(actualDamage));
+            _health -= Mathf.Abs(actualDamage);
+        }
     }
 
     public void InitDamageAnimation()
     {
-        StartCoroutine(InvencibilityCoolDown());
+        StartCoroutine(InvincibilityCoolDown());
     }
     
-    IEnumerator InvencibilityCoolDown()
+    private IEnumerator InvincibilityCoolDown()
     {
         _animator.SetBool("tookDamage", true);
         yield return new WaitForSecondsRealtime(1.5f);
         _animator.SetBool("tookDamage", false);
     }
     
-    public int GetHealth()
+    public float GetHealth()
     {
         return _health;
     }
@@ -121,5 +178,20 @@ public class Player : MonoBehaviour
     private void FlipSprite()
     {
         transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1);
+    }
+    
+    public void IncreaseMovementSpeed(float modifier)
+    {
+        playerVelocidade *= modifier;
+    }
+
+    public void ResumeAttack()
+    {
+        InvokeRepeating("Atirar", _fireRate, _fireRate);
+    }
+    
+    public void IncreaseAttackSpeed(float modifier)
+    {
+        _fireRate /= modifier;
     }
 }

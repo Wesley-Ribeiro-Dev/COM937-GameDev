@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
-{ [SerializeField] private GameObject _mainMenu;
+{ 
+    [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _optionsMenu;
     [SerializeField] private GameObject _upgradesMenu;
+    [SerializeField] private GameObject _creditsScreen;
+    [SerializeField] private GameObject _controlsScreen;
 
     public void QuitGame()
     {
@@ -35,5 +38,29 @@ public class MenuPrincipal : MonoBehaviour
     {
         _mainMenu.SetActive(true);
         _upgradesMenu.SetActive(false);
+    }
+    
+    public void OpenCredits()
+    {
+        _mainMenu.SetActive(false);
+        _creditsScreen.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        _mainMenu.SetActive(true);
+        _creditsScreen.SetActive(false);
+    }
+    
+    public void OpenControls()
+    {
+        _mainMenu.SetActive(false);
+        _controlsScreen.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        _mainMenu.SetActive(true);
+        _controlsScreen.SetActive(false);
     }
 }

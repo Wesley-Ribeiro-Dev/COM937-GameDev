@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Bullet
+  - Knock Back Area
   layers:
   - Default
   - TransparentFX
@@ -43,17 +44,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Foreground
-    uniqueID: 1461532111
-    locked: 0
-  - name: Extra
-    uniqueID: 3924867767
-    locked: 0
   - name: Background
     uniqueID: 1887918385
     locked: 0
-  - name: New Layer 5
-    uniqueID: 79618705
+  - name: Foreground
+    uniqueID: 1461532111
     locked: 0
   - name: Bullet
     uniqueID: 3392513341

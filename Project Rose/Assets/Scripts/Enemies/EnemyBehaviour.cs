@@ -5,12 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
-    [SerializeField] private int _health;
-    [SerializeField] private int _damage;
+    [SerializeField] private float _health;
+    [SerializeField] private float _damage;
     [SerializeField] private float _movementSpeed;
     [SerializeField] private int _xpAmount;
     [SerializeField] private DropsSystem _dropsSystem; 
     [SerializeField] private bool _hasSoulFragment = false;
+    private bool _wasKnocked = false;
     GameObject player;
     private CounterManager _counterManager;
     
@@ -35,9 +36,9 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player != null)
+        if (player != null && !_wasKnocked)
         {
-            enemyRb.velocity = (player.transform.position - transform.position) * _movementSpeed;
+            Move();
             FlipSprite();
         }
 
@@ -45,6 +46,11 @@ public class EnemyBehaviour : MonoBehaviour
         {
             Died();
         }
+    }
+
+    private void Move()
+    {
+        enemyRb.velocity = (player.transform.position - transform.position) * _movementSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
@@ -55,7 +61,7 @@ public class EnemyBehaviour : MonoBehaviour
         }    
     }
 
-    public void DecreaseHealth(int damage)
+    public void DecreaseHealth(float damage)
     {
         _health -= damage;
     }
@@ -64,7 +70,6 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (_hasSoulFragment)
         {
-            _counterManager.AddFragment();
             _dropsSystem.DropSoulFragments(transform);
             Destroy(this.gameObject);
         }

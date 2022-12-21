@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager AudioManagerInstance { get; private set; }
     [SerializeField] private Slider _audioSliderVolume;
-    [SerializeField] private AudioSource _audioSource;
+    private AudioSource _audioSource;
     [SerializeField] private AudioClip _audioClipBG;
     [SerializeField] private AudioClip _audioClipMG;
     private void Awake()

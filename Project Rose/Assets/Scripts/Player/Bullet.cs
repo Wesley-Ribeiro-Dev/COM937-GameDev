@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float _bulletSpeed;
 
-    private int _bulletDamage = 20;
+    private float _bulletDamage;
 
     private Player _playerScript;
     
@@ -19,11 +19,12 @@ public class Bullet : MonoBehaviour
     {
         _bulletRb = GetComponent<Rigidbody2D>();
         _playerScript = FindObjectOfType<Player>();
+        _bulletDamage = _playerScript.damage;
         Transform enemyTransform = _playerScript.UpdateTarget();
         if (enemyTransform != null)
         {
             Vector2 relativePos = (enemyTransform.position - transform.position).normalized;
-            _bulletRb.AddForce(relativePos * _playerScript.bulletSpeed);
+            _bulletRb.AddForce(relativePos * _playerScript._bulletSpeed);
         }
     }
 

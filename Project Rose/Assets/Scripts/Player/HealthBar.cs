@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
         _slider.maxValue = _playerScript.GetHealth();
     }
 
-    public void DecreaseSlider(int value)
+    public void DecreaseSlider(float value)
     {
         _slider.value -= value;
     }
