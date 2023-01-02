@@ -7,14 +7,18 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private float _delay = 0.3f;
+    [SerializeField] private float _delay;
     [SerializeField] private float _radius = 13.02f;
     [SerializeField] private GameObject[] enemies;
-    public 
+
+    public float GetDelay ()
+    {
+        return _delay;
+    }
     void Start()
     {
-        InvokeRepeating("SpawnGoblins", _delay, _delay);
-        InvokeRepeating("SpawnFlyingEyes", _delay, _delay);
+        InvokeRepeating("SpawnGoblins", 0, _delay);
+        InvokeRepeating("SpawnFlyingEyes", 0, _delay);
     }
 
     public void SpawnGoblins()
@@ -61,5 +65,22 @@ public class Spawner : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, _radius);
+    }
+
+    public void SpawnEnemies()
+    {
+        InvokeRepeating("SpawnGoblins", 0, _delay);
+        InvokeRepeating("SpawnFlyingEyes", 0, _delay);
+    }
+
+    public void StopSpawning()
+    {
+        CancelInvoke();
+    }
+
+    public void DecreaseDelay()
+    {
+        if (_delay > 0.1f)
+            _delay -= 0.1f;
     }
 }

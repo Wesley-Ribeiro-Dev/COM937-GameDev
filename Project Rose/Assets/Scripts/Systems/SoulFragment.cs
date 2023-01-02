@@ -30,6 +30,6 @@ public class SoulFragment : MonoBehaviour
     
     private void AddSoulFragment()
     {
-        _inventory._soulsFragments++;
+        _inventory._soulsFragments = _inventory._soulsFragments + (1 * _counterManager.GetModifier());
     }
 }

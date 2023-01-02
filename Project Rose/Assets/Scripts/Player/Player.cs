@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     private HealthBar _healthBar;
 
     Rigidbody2D playerRb;
-
+    [SerializeField] private Transform _firePoint;
     private TrailRenderer _trailRenderer;
 
     Vector2 playerMovDir;
@@ -115,10 +115,8 @@ public class Player : MonoBehaviour
         Transform target = UpdateTarget();
         if (target != null)
         {
-            foreach (Transform spawnBullet in transform)
-            {
-                Instantiate(bulletPrefab, spawnBullet);
-            }
+            GameObject bullet = Instantiate(bulletPrefab, _firePoint);
+            bullet.transform.SetParent(null);
         }
     }
 
@@ -136,6 +134,7 @@ public class Player : MonoBehaviour
                 nearestEnemy = enemy;
             }
         }
+
         if (nearestEnemy != null)
             return nearestEnemy.transform;
         else
@@ -145,7 +144,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         _gameManager.ShowGameOverScreen();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     public void DecreaseHealth(float damage)
@@ -193,5 +192,20 @@ public class Player : MonoBehaviour
     public void IncreaseAttackSpeed(float modifier)
     {
         _fireRate /= modifier;
+    }
+
+    public void DecreaseDashCooldown()
+    {
+        if (_dashCooldown > Mathf.Epsilon)
+        {
+            _dashCooldown -= 0.07f;
+            if (_dashCooldown < 0)
+                _dashCooldown = 0;
+        }
+    }
+
+    public void IncreaseProjectileSpeed()
+    {
+        _bulletSpeed +=40;
     }
 }

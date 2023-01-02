@@ -8,6 +8,7 @@ public class CounterManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _enemiesCounter;
     [SerializeField] private TextMeshProUGUI _soulsFragmentsCounter;
+    [SerializeField] private int _modifier = 1;
 
     public void AddEnemies()
     {
@@ -19,7 +20,17 @@ public class CounterManager : MonoBehaviour
     public void AddFragment()
     {
         int currentValue = int.Parse(_soulsFragmentsCounter.text);
-        currentValue++;
+        currentValue = currentValue + (1 * _modifier);
         _soulsFragmentsCounter.text = currentValue.ToString();
+    }
+
+    public void IncreaseModifier()
+    {
+        _modifier++;
+    }
+
+    public int GetModifier()
+    {
+        return _modifier;
     }
 }

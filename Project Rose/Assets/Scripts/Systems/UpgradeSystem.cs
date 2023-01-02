@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -78,22 +79,22 @@ public class UpgradeSystem : MonoBehaviour
 
     public void DisplayHealthDescription()
     {
-        _description.text = "Aumente sua saúde máxima em 5% (Atualmente: " + (_elixirsModifiers.health*100) + "%)";
+        _description.text = "Aumente sua saúde máxima em 5% (Atualmente: " + Math.Ceiling((_elixirsModifiers.health*100)) + "%)";
     }
     
     public void DisplayDefenseDescription()
     {
-        _description.text = "Aumente sua defesa contra ataques em 5% (Atualmente: " + (_elixirsModifiers.defense*100) + "%)";
+        _description.text = "Aumente sua defesa contra ataques em 5% (Atualmente: " + Math.Ceiling((_elixirsModifiers.defense*100)) + "%)";
     }
     
     public void DisplayDamageDescription()
     {
-        _description.text = "Aumente o dano causado a inimigo em 5% (Atualmente: " + (_elixirsModifiers.damage*100) + "%)";
+        _description.text = "Aumente o dano causado a inimigo em 5% (Atualmente: " + Math.Ceiling((_elixirsModifiers.damage*100)) + "%)";
     }
 
     public void IncreaseUpgradeCost()
     {
-        _elixirsModifiers.cost += 10;
+        _elixirsModifiers.cost += 2;
         _costDisplay.text = _elixirsModifiers.cost + " fragmentos de alma";
     }
 }

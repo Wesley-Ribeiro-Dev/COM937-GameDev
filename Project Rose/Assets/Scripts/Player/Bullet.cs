@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
@@ -26,13 +27,25 @@ public class Bullet : MonoBehaviour
             Vector2 relativePos = (enemyTransform.position - transform.position).normalized;
             _bulletRb.AddForce(relativePos * _playerScript._bulletSpeed);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        StartCoroutine(DestroyProjectile());
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
         if(col.gameObject.CompareTag("Enemy"))
         {
-            col.gameObject.GetComponent<EnemyBehaviour>().DecreaseHealth(_bulletDamage);
+            col.gameObject.GetComponent<EnemyBehaviour>().InitDamageAnimation(_bulletDamage);
             Destroy(this.gameObject);
         }    
+    }
+
+    private IEnumerator DestroyProjectile()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        Destroy(gameObject);
     }
 }
